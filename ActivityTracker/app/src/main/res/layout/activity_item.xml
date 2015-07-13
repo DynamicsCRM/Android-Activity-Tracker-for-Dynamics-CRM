@@ -1,0 +1,212 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.SonomaPartners.activitylogger.Activities.ItemActivity">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarOverlay"
+        app:popupTheme="@style/PopupOverlay"/>
+
+    <RelativeLayout
+        android:id="@+id/infoTop"
+        android:layout_below="@id/item_toolbar"
+        android:background="@color/lighter_gray_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="35dp">
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/contact_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:id="@+id/item_subject"
+            android:layout_below="@+id/item_title"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:textSize="18sp"/>
+
+        <RelativeLayout
+            android:id="@+id/address_wrapper"
+            android:layout_below="@id/item_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageButton
+                android:id="@+id/btnMap"
+                android:layout_centerVertical="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_contact_map"/>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/btnMap"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:maxLines="3"
+                android:lines="2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/phone_wrapper"
+            android:layout_below="@id/address_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageButton
+                android:id="@+id/btnPhone"
+                android:layout_centerVertical="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_contact_phone"/>
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/btnPhone"
+                android:singleLine="true"
+                android:text="--"
+                android:layout_marginStart="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mail_wrapper"
+            android:layout_below="@id/phone_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageButton
+                android:id="@+id/btnMail"
+                android:layout_centerVertical="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_contact_mail"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_centerVertical="true"
+                android:text="--"
+                android:layout_toEndOf="@id/btnMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/header_activity_spacer"
+        android:layout_below="@id/infoTop"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e1e1e1"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_below="@id/header_activity_spacer"
+        android:id="@+id/recent_swipe_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/activity_list"
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="always"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/options_section"
+        android:layout_below="@id/infoTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-28dp"
+        android:layout_centerHorizontal="true"
+        android:focusable="false">
+
+        <ImageButton
+            android:id="@+id/action_checkin"
+            android:background="@drawable/option_button_selector"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_action_check"
+            android:scaleType="centerCrop"/>
+
+        <ImageButton
+            android:id="@+id/action_doc"
+            android:background="@drawable/option_button_selector"
+            android:layout_toEndOf="@id/action_checkin"
+            android:clickable="false"
+            android:layout_marginStart="20dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_action_note_disabled"
+            android:scaleType="centerCrop"/>
+
+        <ImageButton
+            android:id="@+id/action_flag"
+            android:background="@drawable/option_button_selector"
+            android:layout_toEndOf="@id/action_doc"
+            android:layout_marginStart="20dp"
+            android:clickable="false"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_action_flag_disabled"
+            android:scaleType="centerCrop"/>
+
+        <ImageButton
+            android:id="@+id/action_phone"
+            android:background="@drawable/option_button_selector"
+            android:layout_toEndOf="@+id/action_flag"
+            android:layout_marginStart="20dp"
+            android:layout_width="56dp"
+            android:clickable="false"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_action_phone_disabled"
+            android:scaleType="centerCrop"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

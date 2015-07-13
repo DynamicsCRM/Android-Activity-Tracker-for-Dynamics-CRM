@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-0dc41eabc2a1031c760da52247a9e8837a8c8749.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-8267916ff5015c01c793f7f0f9d859e9ce02fb1f.jar" />
+    </item>
+    <item
+        jar="C:\Users\carmend\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\gson-2.3.1-9d4a24f3bed2337c5bcf7fe610efcb097d5d74a7.jar" />
+    </item>
+    <item
+        jar="C:\Users\carmend\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5fe28b9518e58819180a43a850fbc0dd24b7c050">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\commons-lang3-3.4-292d24dd420191abc0ac6cc02840fc83e0028f72.jar" />
+    </item>
+    <item
+        jar="C:\Users\carmend\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\retrofit-1.9.0-b7456e9960db682cbd0badf69c93bb29f6d30976.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\com.nispok\snackbar\2.10.5\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="60a549288edf3b2881c59b3e751cf16e2fa81655">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-d7c266b0be3869d7bed9fe12e0075aa252948a21.jar" />
+    </item>
+    <item
+        jar="C:\Users\carmend\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-6bf3097c0c97e20083631c0f37c71cf2cbf9aa3f.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\com.microsoft.aad\adal\1.1.7\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dc083d4004dfb652249a14160db55cc55cd922bc">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-d3c302f8bc8d0c5a252b4954c8f790109bcdfd18.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-fc6cb73900185f2a56c3b86216191a9dc00a5d3a.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-c209d13d2fa69f1b7cde41a4dd44e62c7db2403d.jar" />
+    </item>
+    <item
+        jar="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\exploded-aar\mobilesdk-android-test\crmsdk2015\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="871c70437ca80fd4122a5908fe7d09bcc42fec63">
+        <dex dex="C:\src\MobileSDK-Final\3-AndroidSample\mobilesdk-android-test\app\build\intermediates\pre-dexed\debug\classes-8f9dc4d001ca16a6858a5b59dc150d3a3f727639.jar" />
+    </item>
+
+</items>

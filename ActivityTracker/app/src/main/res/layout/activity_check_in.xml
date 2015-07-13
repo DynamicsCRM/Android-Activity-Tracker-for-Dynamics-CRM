@@ -1,0 +1,158 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:isScrollContainer="true"
+    android:orientation="vertical"
+    tools:context="com.SonomaPartners.activitylogger.Activities.CheckInActivity">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/checkin_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarOverlay"
+        app:popupTheme="@style/PopupOverlay"/>
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:orientation="vertical"
+        android:background="#f5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/checkinTitle"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/checkinSubject"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#999999"
+            android:layout_marginTop="5dp"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/header_subject_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e1e1e1"/>
+
+    <RelativeLayout
+        android:id="@+id/subjectSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/lblSubject"
+            android:textColor="#969696"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_label"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/etSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblSubject"
+            android:layout_marginBottom="15dp"
+            android:textSize="17sp"
+            android:maxLength="200"
+            android:singleLine="true"
+            android:imeOptions="actionNext"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/subject_date_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e1e1e1"/>
+
+    <RelativeLayout
+        android:id="@+id/dateSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true">
+
+        <TextView
+            android:textColor="#969696"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:id ="@+id/lblDate"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_label"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_below="@+id/lblDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/date_notes_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e1e1e1"/>
+
+    <RelativeLayout
+        android:id="@+id/notesSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lblNotes"
+            android:textColor="#969696"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notes_label"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/etNotes"
+            android:layout_below="@id/lblNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:maxLines="3"
+            android:textSize="18sp"
+            android:hint="@string/tap_add_note"
+            android:layout_marginBottom="15dp"
+            android:imeOptions="actionDone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

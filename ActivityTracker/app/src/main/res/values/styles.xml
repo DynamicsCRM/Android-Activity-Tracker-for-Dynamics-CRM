@@ -1,0 +1,27 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/theme_blue</item>
+        <!--<item name="colorPrimaryDark">@color/main_blue_dark</item>-->
+        <item name="colorAccent">@color/theme_blue</item>
+        <item name="colorControlHighlight">@color/transparent_theme_blue</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+
+    <style name="ToolbarOverlay" parent="Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/theme_blue</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="PopupOverlay" parent="Theme.AppCompat.Light">
+    </style>
+</resources>

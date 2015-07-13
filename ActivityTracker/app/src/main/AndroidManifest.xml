@@ -1,0 +1,59 @@
+<manifest
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.microsoft.activitytracker">
+
+    <uses-sdk
+        tools:overrideLibrary="android.support.v7.cardview" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".Classes.ActivityTracker"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.microsoft.aad.adal.AuthenticationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" >
+        </activity>
+
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Activities.CheckInActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".Activities.ItemActivity"
+            android:label="@string/title_activity_check_in"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".Activities.SetupActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+    </application>
+
+</manifest>
