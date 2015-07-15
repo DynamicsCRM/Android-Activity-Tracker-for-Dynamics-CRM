@@ -16,12 +16,12 @@ If you will be running the app in the Intel HAXM emulator, you will need to set 
 
 To build the sample app, follow these steps. **You will need to download (git clone) the [Mobile SDK library](https://github.com/DynamicsCRM/crm-mobilesdk-library-for-android), which is a dependency for this application.**
 
-1. Load the app's project, located in the mobilesdk-android-test folder, into Android Studio.
-1. Include the Mobile SDK library as a new module by going to File > Import Module... and selecting the path to the crmsdk2015 folder.
-2. In the project view, expand app > src > main > java > com.microsoft.activitytracker > Classes.
+1. Load the app's project, located in the ActivityTracker folder under the project’s root folder, into Android Studio.
+1. Include the Mobile SDK library as a new module by going to **File > Import Module…** and selecting the path to your local crm-mobilesdk-library-for-android/CRMMobileSDK folder. If **Import Module…** is not in the **File** menu, you can locate that action by choosing **Help > Find Actions** and entering “Import Module…” as the action to find. 
+2. In the project view, expand app > java > com.microsoft.activitytracker > Classes.
 3. Edit the Constants.java file.
 4. On line 7 in the code file, change the provided value of `CLIENT_ID` to the client ID value from your app registration.
-5. On line 44 in the code file, change the provided value of `REDIRECT_URI` to the redirect URI value from your app registration.
+5. On line 8 in the code file, change the provided value of `REDIRECT_URI` to the redirect URI value from your app registration.
 6. Build the application.
 
 ## Run the application
