@@ -12,13 +12,15 @@ public class ActivityTracker extends Application
     private static String currentSessionToken;
     private static RequestInterceptor requestInterceptor;
 
-    public static RequestInterceptor getRequestInterceptor()
-    {
+    public static RequestInterceptor getRequestInterceptor() {
         return requestInterceptor;
     }
 
-    public static void setCurrentSessionToken(Context thisContext, String sessionToken)
-    {
+    public static String getCurrentSessionToken() {
+        return currentSessionToken;
+    }
+
+    public static void setCurrentSessionToken(Context thisContext, String sessionToken) {
         SharedPreferences mAppPreferences = PreferenceManager.getDefaultSharedPreferences(thisContext);
         mAppPreferences.edit().putString(Constants.TOKEN, sessionToken).apply();
 

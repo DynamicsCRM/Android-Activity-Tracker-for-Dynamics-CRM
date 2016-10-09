@@ -40,15 +40,12 @@ import com.microsoft.aad.adal.AuthenticationCallback;
 import com.microsoft.aad.adal.AuthenticationContext;
 import com.microsoft.aad.adal.AuthenticationResult;
 
+import com.microsoft.xrm.sdk.Callback;
 import com.microsoft.xrm.sdk.Client.OrganizationServiceProxy;
 import com.microsoft.xrm.sdk.Entity;
 import com.microsoft.xrm.sdk.EntityCollection;
 import com.microsoft.xrm.sdk.Query.FetchExpression;
 import com.nispok.snackbar.Snackbar;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity implements AuthenticationCallback<AuthenticationResult>,
         LoaderManager.LoaderCallbacks<Cursor>, MenuItemCompat.OnActionExpandListener, SearchView.OnQueryTextListener,
@@ -193,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements AuthenticationCal
     public void onSuccess(AuthenticationResult result) {
         ActivityTracker.setCurrentSessionToken(this, result.getAccessToken());
         mOrgService = new OrganizationServiceProxy(mAppPreferences.getString(Constants.ENDPOINT, ""),
-                ActivityTracker.getRequestInterceptor());
+                ActivityTracker.getCurrentSessionToken());
 
         getRecentActivity();
     }
@@ -212,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements AuthenticationCal
         switch (requestCode) {
             case SETUP_ID:
                 mOrgService = new OrganizationServiceProxy(mAppPreferences.getString(Constants.ENDPOINT, ""),
-                    ActivityTracker.getRequestInterceptor());
+                    ActivityTracker.getCurrentSessionToken());
 
                 getRecentActivity();
                 break;
@@ -237,13 +234,13 @@ public class MainActivity extends AppCompatActivity implements AuthenticationCal
                     Utils.getEscapedContactSearchTermFetch(query));
             mOrgService.RetrieveMultiple(fetchExpression, new Callback<EntityCollection>() {
                 @Override
-                public void success(EntityCollection entityCollection, Response response) {
+                public void success(EntityCollection entityCollection) {
                     mMainList.setAdapter(new SearchResultsAdapter(getApplicationContext(), entityCollection));
                     mSwipeRefresh.setRefreshing(false);
                 }
 
                 @Override
-                public void failure(RetrofitError error) {
+                public void failure(Throwable error) {
                     displayError(error.getMessage());
                 }
             });

@@ -23,6 +23,7 @@ import com.microsoft.activitytracker.Classes.Constants;
 import com.microsoft.activitytracker.Models.Contact;
 import com.microsoft.activitytracker.R;
 import com.microsoft.xrm.sdk.AliasedValue;
+import com.microsoft.xrm.sdk.Callback;
 import com.microsoft.xrm.sdk.Client.OrganizationServiceProxy;
 import com.microsoft.xrm.sdk.Client.RestOrganizationServiceProxy;
 import com.microsoft.xrm.sdk.ColumnSet;
@@ -40,12 +41,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 public class CheckInActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private SharedPreferences sharedPreferences;
     private OrganizationServiceProxy mOrgService;
     private Calendar mDate = Calendar.getInstance();
     private Contact mContact;
@@ -57,9 +55,9 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mOrgService = new OrganizationServiceProxy(sharedPreferences.getString(Constants.ENDPOINT, ""),
-                ActivityTracker.getRequestInterceptor());
+                ActivityTracker.getCurrentSessionToken());
         mProgressDialog = new ProgressDialog(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.checkin_toolbar);
@@ -127,7 +125,7 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
                         "jobtitle", "telephone1"),
                 new Callback<Entity>() {
                     @Override
-                    public void success(Entity entity, Response response) {
+                    public void success(Entity entity) {
                         try {
                             mContact = entity.toEntity(Contact.class);
                             getSupportActionBar().setTitle(R.string.title_activity_check_in);
@@ -164,7 +162,7 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
+                    public void failure(Throwable error) {
                         displayErrorSnackbar("Unable to retrieve Contact");
                     }
                 });
@@ -193,15 +191,16 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
         entity.getAttributes().put("Description", notes.getText().toString());
 
         try {
-            RestOrganizationServiceProxy restService = new RestOrganizationServiceProxy(mOrgService);
+            RestOrganizationServiceProxy restService = new RestOrganizationServiceProxy(sharedPreferences.getString(Constants.ENDPOINT, ""),
+                    ActivityTracker.getCurrentSessionToken());
             restService.Create(mContact, entity, "Contact_Tasks", new Callback<UUID>() {
                 @Override
-                public void success(UUID uuid, Response response) {
+                public void success(UUID uuid) {
                     CompleteActivity(uuid);
                 }
 
                 @Override
-                public void failure(RetrofitError error) {
+                public void failure(Throwable error) {
                     displayErrorSnackbar("Unable to create new check in");
                 }
             });
@@ -219,13 +218,13 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
 
         mOrgService.Execute(setStateRequest, new Callback<OrganizationResponse>() {
             @Override
-            public void success(OrganizationResponse organizationResponse, Response response) {
+            public void success(OrganizationResponse organizationResponse) {
                 setResult(RESULT_OK);
                 finish();
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void failure(Throwable error) {
                 displayErrorSnackbar("Error completing activity");
                 Log.d("Execute SetStateRequest", error.getMessage());
             }
