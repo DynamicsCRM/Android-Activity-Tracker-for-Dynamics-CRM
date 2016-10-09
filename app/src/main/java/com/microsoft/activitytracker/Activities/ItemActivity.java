@@ -20,6 +20,7 @@ import com.microsoft.activitytracker.Models.Contact;
 import com.microsoft.activitytracker.R;
 
 import com.microsoft.xrm.sdk.AliasedValue;
+import com.microsoft.xrm.sdk.Callback;
 import com.microsoft.xrm.sdk.Client.OrganizationServiceProxy;
 import com.microsoft.xrm.sdk.Client.QueryOptions;
 import com.microsoft.xrm.sdk.Client.RestOrganizationServiceProxy;
@@ -35,14 +36,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 public class ItemActivity extends AppCompatActivity implements View.OnClickListener
 {
     private final int CHECK_IN_ACTIVITY = 1;
 
+    private SharedPreferences sharedPreferences;
     private SwipeRefreshLayout mSwipeRefresh;
     private OrganizationServiceProxy mOrgService;
     private Contact mContact;
@@ -53,9 +51,9 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mOrgService = new OrganizationServiceProxy(sharedPreferences.getString(Constants.ENDPOINT, ""),
-                ActivityTracker.getRequestInterceptor());
+                ActivityTracker.getCurrentSessionToken());
         mActivityList = (ListView)findViewById(R.id.activity_list);
 
         View view  = getLayoutInflater().inflate(R.layout.twoline_item_layout, null);
@@ -82,12 +80,12 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
 
         mOrgService.Execute(createRequest, new Callback<OrganizationResponse>() {
             @Override
-            public void success(OrganizationResponse organizationResponse, Response response) {
+            public void success(OrganizationResponse organizationResponse) {
 
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void failure(Throwable error) {
 
             }
         });
@@ -192,7 +190,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                         "jobtitle", "telephone1"),
                 new Callback<Entity>() {
                     @Override
-                    public void success(Entity entity, Response response) {
+                    public void success(Entity entity) {
                         try {
                             mContact = entity.toEntity(Contact.class);
                             getSupportActionBar().setTitle(R.string.contact_title);
@@ -232,7 +230,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
+                    public void failure(Throwable error) {
                         displayErrorSnackbar("Unable to retrieve Contact");
                     }
                 });
@@ -255,12 +253,13 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                 .putFilter("ActualEnd ne null")
                 .putOrderBy("ActualEnd desc");
 
-        RestOrganizationServiceProxy restService = new RestOrganizationServiceProxy(mOrgService);
+        RestOrganizationServiceProxy restService = new RestOrganizationServiceProxy(sharedPreferences.getString(Constants.ENDPOINT, ""),
+                ActivityTracker.getCurrentSessionToken());
 
         restService.RetrieveMultiple(Contact.class.getSimpleName(), mContact.getId(), "Contact_ActivityPointers",
                 queryOptions, new Callback<EntityCollection>() {
                     @Override
-                    public void success(EntityCollection entityCollection, Response response) {
+                    public void success(EntityCollection entityCollection) {
 //                        mActivityList.removeAllViews();
 //
 //                        if (entityCollection.getEntities().size() == 0) {
@@ -275,7 +274,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
+                    public void failure(Throwable error) {
                         displayErrorSnackbar("Unable to retrieve contact's activities");
                     }
                 });

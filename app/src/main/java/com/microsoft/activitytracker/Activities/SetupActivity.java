@@ -5,9 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
@@ -15,18 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.microsoft.aad.adal.AuthenticationCallback;
+import com.microsoft.aad.adal.AuthenticationContext;
+import com.microsoft.aad.adal.AuthenticationResult;
 import com.microsoft.activitytracker.Classes.ActivityTracker;
 import com.microsoft.activitytracker.Classes.Constants;
 import com.microsoft.activitytracker.Core.NetworkCalls;
 import com.microsoft.activitytracker.R;
-import com.microsoft.aad.adal.AuthenticationCallback;
-import com.microsoft.aad.adal.AuthenticationContext;
-import com.microsoft.aad.adal.AuthenticationResult;
-import com.microsoft.xrm.sdk.Client.OrganizationServiceProxy;
-
-import org.apache.http.message.BasicHttpResponse;
-
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;

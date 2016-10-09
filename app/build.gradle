@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         applicationId "com.microsoft.activitytracker"
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 24
         versionCode 6
         versionName "v2.0.0"
     }
@@ -29,9 +29,19 @@ repositories {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    compile('com.github.w9jds:crm-mobilesdk-library-for-android:master-SNAPSHOT') {
+        transitive = true
+    }
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.squareup.retrofit:retrofit:1.8.0'
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'de.hdodenhof:circleimageview:1.2.1'
@@ -40,6 +50,4 @@ dependencies {
     compile('com.microsoft.aad:adal:1.1.7') {
         exclude group: 'com.android.support'
     }
-
-    compile project(':crmsdk2015')
 }
